@@ -1,9 +1,10 @@
 <?php
 // Database connection settings
-$servername = "localhost";
+
+$servername = "mysql-service";
 $username = "admin";
 $password = "Password123";
-$dbname = "username";
+$dbname = "students";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
