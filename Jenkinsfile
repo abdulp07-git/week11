@@ -51,15 +51,15 @@ pipeline {
                     sh "docker push ${fullImageName}"
                 }
             }
-        }
         
         
-        post {
-            always {
-                sh 'docker logout'
+        
+            post {
+                always {
+                    sh 'docker logout'
+                }
             }
         }
-        
         
     }
 }
