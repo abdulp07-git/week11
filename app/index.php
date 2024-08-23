@@ -6,7 +6,7 @@
     <title>Simple PHP Web App</title>
 </head>
 <body>
-    <h1>Welcome to the Web Application</h1>
+    <h1>Welcome to the Web Application V1</h1>
     
     <form action="add.php" method="POST">
         <label for="name">Enter Name:</label>
