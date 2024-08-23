@@ -60,6 +60,22 @@ pipeline {
                 }
             }
         }
+
+
+        stage("Clean up local Docker image") {
+            steps {
+                script {
+                    def dockerImage = "abdulp07/nginx-php"
+                    def tag = "V${BUILD_NUMBER}"
+                    def fullImageName = "${dockerImage}:${tag}"
+                    
+                    sh "docker rmi ${fullImageName}"
+                }
+            }
+        }
+
+
+
         
     }
 }
