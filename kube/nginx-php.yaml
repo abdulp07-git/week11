@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-php-deployment
+  namespace: nginx-php-mysql-pro
   labels:
     tag: nginx-php-deployment
 spec:
@@ -17,7 +18,7 @@ spec:
     spec:
       containers:
         - name: nginx-php-image
-          image: abdulp07/nginx-php:V12
+          image: abdulp07/nginx-php:V15
   replicas: 3
 
 ---
@@ -26,6 +27,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-php-service
+  namespace: nginx-php-mysql-pro
 spec:
   type: NodePort
   ports:

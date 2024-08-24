@@ -1,2 +1,2 @@
-FROM webdevops/php-nginx
+FROM webdevops/php-nginx:8.2
 COPY app/* /app
