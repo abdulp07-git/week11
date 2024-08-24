@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    tag: database
+spec:
+  selector:
+    matchLabels:
+      tag: mysql
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        tag: mysql
+    spec:
+      containers:
+        - name: mysql-container
+          image: mysql:8.0
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "Password123"
+            - name: MYSQL_DATABASE
+              value: "students"
+            - name: MYSQL_USER
+              value: "admin"
+            - name: MYSQL_PASSWORD
+              value: "Password123"
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: mysql-storage
+      volumes:
+        - name: mysql-storage
+          emptyDir:
+            {}
+---
+
+apiVersion: v1 
+kind: Service
+metadata:
+  name: mysql-service
+  labels:
+    tag: database
+spec:
+  ports:
+    - port: 3306
+  selector:
+    tag: mysql
+
