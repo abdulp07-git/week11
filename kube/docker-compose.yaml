@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    image: webdevops/php-nginx
+    volumes:
+      - ./:/app
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: Password123
+      MYSQL_DATABASE: students
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: Password123
+    ports:
+      - "3306:3306"

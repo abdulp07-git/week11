@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: nginx-php-image
-          image: abdulp07/nginx-php:V15
+          image: abdulp07/nginx-php:V16
   replicas: 3
 
 ---
